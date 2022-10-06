@@ -1749,6 +1749,9 @@ readers do not read off random characters that represent icons */
 .fa-galactic-senate:before {
   content: "\f50d"; }
 
+.fa-gallery-thumbnails:before {
+  content: "\f50d"; }
+
 .fa-gamepad:before {
   content: "\f11b"; }
 
@@ -4394,3 +4397,4 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
+
