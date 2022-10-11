@@ -1,65 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">                            
- <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
- </head>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/nouislider/nouislider.min.css') }}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registration/style.css') }}">
+</head>
 <body>
-  <div class="row shadow mt-5 p-4"></div>
-    <div class="container">
-      
-        <div class="title">Registration</div>
-        <div class="content">
-         
-          <form action="" method="POST">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details mt-7s">Full Name</span>
-                <input type="text" name="name" id="name" placeholder="Enter your name" required>
-              </div>
-              <div class="input-box">
-                <span class="details mt-7">email</span>
-                <input type="email" name="email" id="email" placeholder="Enter your Email" required>
-              </div>
-              <div class="input-box">
-                <span class="details mt-7">Phone Number</span>
-                <input type="int" name="phone" id="phone"placeholder="Enter your number" required>
-              </div>
-              <div class="input-box">
-                <span class="details mt-7">Gender</span>
-                <input type="text" name="gender" id="gender"placeholder="Enter Gender" required>
-              </div>
-              <div class="input-box">
-                <span class="details mt-7s"> Geographical Location</span>
-                <input type="text" name="geographical_location" id="geographical_location" placeholder="Enter your name" required>
-              </div>
-			  <div class="input-box">
-                <span class="details mt-7">Password</span>
-                <input id="password"name="password" type="password" class="form-control" required>
-      			<label class="form-control-placeholder" for="password">Password</label>
-      			
-              </div>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="{{ url_for('static', filename='images/banglore.jpg') }}" alt="">
+                    <div class="signup-img-content">
+                        <h2>Register now </h2>
+                        <p>To Find Routes!!</p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="first_name" class="required">Full name</label>
+                                    <input type="text" name="name" id="name" />
+                                </div>
+                                <div class="form-input">
+                                  <label for="email" class="required">Email</label>
+                                  <input type="text" name="email" id="email" />
+                              </div>
+                                <div class="form-input">
+                                    <label for="geographical_location" class="required">geographical_location</label>
+                                    <input type="text" name="geographical_location" id="geographical_location" />
+                                </div>
+                               </div>
+                            <div class="form-group">
+                                <div class="form-select">
+                                  <div class="form-input">
+                                    <label for="phone" class="required">Phone number</label>
+                                    <input type="text" name="phone" id="phone" />
+                                </div>
+                                    
+                                </div>
+                                <div class="form-radio">
+                                    <div class="label-flex">
+                                        <label for="payment">Gender</label>
+                                    </div>
+                                    <div class="form-radio-group">            
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="gender" id="male" checked>
+                                            <label for="male">Male</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="gender" id="female">
+                                            <label for="female">Female</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="gender" id="other">
+                                            <label for="other">Other</label>
+                                            <span class="check"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                  <label for="password" class="required">Password</label>
+                                  <input type="password" name="password" id="password" />
+                              </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-submit">   
+                            <input type="submit" value="Register" class="submit" id="submit" name="submit" />
+                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                        </div>
+                        <br><br>
+                        <div class="text-center"><a href="{{url_for ('login.login')}}"> Already have an Account? Login</a></div>
+                    </form>
+                </div>
             </div>
-            <div class="button">
-              <input type="submit" value="Register">
-            </div>
-             <div class="text-center"><a href="{{url_for ('login.login')}}"> Already have an Account? Login</a></div>
-            
-            </div>
-       
-          </form>
         </div>
-        </div>
-         </div>
-      </div>
-      <script src="{{ url_for('static', filename='js/home.js')}}"></script>
-      
+
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/nouislider/nouislider.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/wnumb/wNumb.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery-validation/dist/additional-methods.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/registration/main.js')}}"></script>
 </body>
 </html>
-
-
