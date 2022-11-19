@@ -20,8 +20,12 @@ app.add_url_rule('/', endpoint='index')
 from login import login
 app.register_blueprint(login.bp_login)
 
+
 from login import registration
 app.register_blueprint(registration.bp_registration)
 
 from user import dashboard
 app.register_blueprint(dashboard.bp_dashboard)
+
+from user import tripdetails
+app.register_blueprint(tripdetails.bp_tripdetails, url_prefix='/tripdetails')

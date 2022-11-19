@@ -1,0 +1,20 @@
+<html>
+
+<body>
+    
+    {% for key,val in path.items() %}
+        <h1>{{key}}<h1>
+        <ul>
+            
+                {% for item in val %}
+               <li><h6> {{item}} </h6></li>
+                {% endfor %}
+            
+                
+        </ul>
+    {% endfor %}
+  
+
+</body>
+
+</html>

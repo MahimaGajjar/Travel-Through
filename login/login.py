@@ -4,6 +4,7 @@ import MySQLdb.cursors
 import app
 
 bp_login = Blueprint('login', __name__)
+print("bpnm============",bp_login)
 
 @bp_login.route('/login', methods =['GET', 'POST'])
 def login():

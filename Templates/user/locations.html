@@ -1,0 +1,25 @@
+<html>
+    <title>
+    Locations    
+    </title>
+
+    <body>
+    
+        <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
+
+            {% for n in name %}
+         
+                <input type="checkbox"   name=loc value={{n['COL 1']}} />
+                <label for={{n['COL 2']}}>{{n['COL 2']}}</label><br>
+          
+             
+            {% endfor %}
+                  
+            <input type="submit" value="Submit" >
+         
+        </form>
+        
+    
+
+    </body>
+</html>
