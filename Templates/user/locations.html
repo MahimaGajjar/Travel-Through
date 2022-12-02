@@ -33,45 +33,90 @@
     <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}">
 </head>
 
-    <body>
-     <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
-        <table class="table table-hover table-primary">
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Gemdev</a> -->
+
+            <!-- Image Logo -->
+             <a class="navbar-brand logo-text page-scroll" href="index.html">TravelThrough</a> 
+            
+           
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#details">Details <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{{url_for('login.logout')}}">Logout</a>
+                    </li>
+                   
+                </ul>
+                <span class="nav-item social-icons">
+                    <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x"></i>
+                        </a>
+                    </span>
+                </span>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+     
+        <table class="table table-responsive-md table-hover ">
+            <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
             <tbody>
               {% for n in name %}
             <tr>
                 <td>
-                <input type="checkbox"   name=loc value={{n['COL 1']}} />
-                <label for={{n['COL 2']}}>{{n['COL 2']}}</label><br>
+                    <input type="checkbox" class="largerCheckbox" name=loc value={{n['COL 1']}} />
+                </td>
+               
+                <th>
+                    <div class="tab" for={{n['COL 2']}}>{{n['COL 2']}}</div><br>
+                </th>
+
+                <td>
+                    <div class="tab">  {{n['COL 3']}}</div>
                 </td>
 
-
-                <td>
-                    <div style="height: 5% ; width:100% ">  {{n['COL 3']}}</div>
-                 
-                 </td>
-
-                 
-                <td>
-                    <div style="height: 5% ; width:100% ">  {{n['COL 5']}}</div>
+                 <td>
+                    <div class="tab">  {{n['COL 5']}}</div>
                 </td>
 
                 <td>
-                    <div style="height: 5% ; width:100% ">  {{n['COL 6']}}</div>
+                    <div class="tab">  {{n['COL 6']}}</div>
                 </td>
 
-
                 <td>
-                    <div>
-                    <img src= {{n.image}} style="height:5rem ;width:5rem"></img>
-                    </div>
+                 <div>
+                    <img src= {{n.image}} style="height:50% ; width:50% "></img>
+                 </div>
                 </td>
             </tr>
             {% endfor %}
 
-        </tbody>  
+        </tbody> 
+    </form> 
     </table>
             <input type="submit" value="Submit" >
-    </form>
+    
        <!-- Scripts -->
        <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
        <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script> <!-- Bootstrap framework -->

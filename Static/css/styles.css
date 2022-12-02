@@ -240,7 +240,10 @@ a:hover {
 	color: #ffffff;
 	text-decoration: none;
 }
-
+input.largerCheckbox {
+	width: 30px;
+	height: 30px;
+}
 .form-group {
 	position: relative;
 	margin-bottom: 1.25rem;
@@ -619,7 +622,12 @@ input[type='checkbox'] {
 	margin-bottom: 0.75rem;
 	border-radius: 50%;
 }
-
+div.tab{
+	height: 5% ;
+	 width:100%; 
+	 font-family: "Times New Roman", Times, serif;
+	 font-size: 1.5rem;
+}
 
 /*********************/
 /*     Details 1     */
