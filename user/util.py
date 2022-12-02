@@ -6,8 +6,14 @@ import requests
 import MySQLdb.cursors
 from datetime import date
 import re
+from flask import session
+from flask import Flask
+
+
+
 
 def distance(lat1, lat2, lon1, lon2):
+    d={}
      
     # The math module contains a function named
     # radians which converts from degrees to radians.
@@ -27,7 +33,14 @@ def distance(lat1, lat2, lon1, lon2):
     r = 6371
       
     # calculate the result
-    return(c * r)
+    dist = c * r
+
+    time = (dist*1000)/(35*(1000/3600))
+
+    d['distance']=dist
+    d['time']=time
+
+    return d
 
 def parse(num):
     new_str = num.rstrip('\u00b0ENSW')
@@ -64,6 +77,11 @@ def fetchDetails(size):
 
 
     return d
+def HomeData():
+    cursor = app.mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM tripdetails')
+    res = cursor.fetchall()
+    return res
 
 def fetchData():
     cursor = app.mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -95,6 +113,8 @@ def days(d1,d2):
     r1 = date(int(d1),int(m1),int(y1))
     r2 = date(int(d2),int(m2),int(y2))
     res = abs(r2-r1).days
+
+    session['days']=res
     return res
 
 def getLocationTimeDetails():
@@ -106,16 +126,14 @@ def getLocationTimeDetails():
 
     
 
-def getRoutes(itemList,initial,plan,day):
+def getRoutes(itemList,initial,plan,day,listDays,c,flag,days_num):
     
-   
-    print('plan=====',plan)
+    print('day=====================',day)
+    print('listdays-===============',listDays)
+ 
     
     end = (3600*19) + (30*60)
     loc_info = getLocationTimeDetails()
-
-  
-   
 
     for i in range(len(loc_info)):
         if(loc_info[i]['COL 1'] == 'location_id'):
@@ -123,8 +141,6 @@ def getRoutes(itemList,initial,plan,day):
         else:
             
             id = loc_info[i]['COL 1']
-
-
                 
             if(itemList[0]==id):
                 closing_time = loc_info[i]['COL 6'].strip('PM')
@@ -133,48 +149,61 @@ def getRoutes(itemList,initial,plan,day):
 
                 time = ((int(hour)+12)*3600) + (int(min)*60)
                 
-          
+        
                 duration = loc_info[i]['COL 7']
                 travel_time = itemList[1]['time']
 
                 initial += int(travel_time) + int(duration)*60
 
-          
+                print("sssssssssssssss====",loc_info[i]['COL 2'])
 
-                if initial < time:
-                    print("travelable")
+                if (initial < time and c <= listDays[day-1]-1):
+                    
                     key = 'day'+str(day)
+
+                    print("rrrrrrrrr=======",loc_info[i]['COL 2'])
                     
                     if(key in plan):
+                        print("key in plan")
                         plan[key].append(loc_info[i]['COL 2'])
+            
                     
                     else:
-                   
+                
                         plan[key] = [loc_info[i]['COL 2']]
+                    c+=1
+                    flag=1
             
                 
                 else:
+                 
+                    c=0
                     day+=1
-                    initial=3600*10  
-                
-
-    print("plan ======",plan)
-    return plan , initial , day
-                        
-                        
-
-
+                   
+                    key = 'day'+str(day)
                     
+                    print("added day===========",day)
+                    initial=3600*10  
 
-           
-        
+              
 
-
-
-  
    
-
-  
-        
+    return plan , initial , day, c , flag
 
 
+
+def distributeDays(days,d):
+    l = len(d)
+
+
+    q= l//days
+    rem = l%days
+    a=[]
+    for i in range(days):
+        a.append(q)
+    
+
+    for j in range(rem):
+        a[j]+=1
+
+    return a

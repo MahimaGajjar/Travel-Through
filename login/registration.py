@@ -17,8 +17,8 @@ def registration():
             geographical_location = request.form['geographical_location']
     
             cursor = app.mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO userdetails(name, email,phone,latitude,longitude,gender) VALUES (%s,% s,% s, % s, % s, %s)', (name, email,phone,geographical_location,gender))
-            cursor.execute('INSERT INTO login(username,password,role_type,phone,email) VALUES(%s,% s,% s, % s, % s)', ( name,password,'1',phone,email))
+            cursor.execute('INSERT INTO userdetails(name, email,phone,geographical_location,gender) VALUES (%s,% s, % s, % s, %s)', (name, email,phone,geographical_location,gender))
+            cursor.execute('INSERT INTO login(username,password,role_type,phone,email) VALUES (%s,% s,% s, % s, % s)', ( name,password,'1',phone,email))
             app.mysql.connection.commit()
             return redirect(url_for('login.login'))
         

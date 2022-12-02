@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import app
 
+
 bp_login = Blueprint('login', __name__)
 print("bpnm============",bp_login)
 
@@ -21,6 +22,7 @@ def login():
             session['loggedin'] = True
             session['id'] = userdetails['id']
             session['role_type'] = userdetails['role_type']
+            session['username'] = userdetails['username']
             print(session)
             if session['role_type'] == '1':
                 cursor.execute('SELECT * FROM userdetails WHERE email = % s',(email,))
@@ -28,6 +30,7 @@ def login():
                 print('user')
                 session['user_id'] = user['user_id']
                 session['email'] = user['email'] 
+               
                 print(session)
                 return redirect(url_for('dashboard.dashboard'))
             # else :
