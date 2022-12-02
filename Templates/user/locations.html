@@ -77,45 +77,60 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+  
 
-     
-        <table class="table table-responsive-md table-hover ">
-            <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
-            <tbody>
-              {% for n in name %}
-            <tr>
-                <td>
-                    <input type="checkbox" class="largerCheckbox" name=loc value={{n['COL 1']}} />
-                </td>
-               
-                <th>
-                    <div class="tab" for={{n['COL 2']}}>{{n['COL 2']}}</div><br>
-                </th>
+    <div id="statement" class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-20">
+                    
+                       <h2 class="plan-steps-pane__title c-section__heading h3">Select Locations</h2>
+                       <table class="table table-responsive-md table-hover ">
+                        <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
+                        <tbody>
+                          {% for n in name %}
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="largerCheckbox" name=loc value={{n['COL 1']}} />
+                            </td>
+                           
+                            <th>
+                                <div class="tab" for={{n['COL 2']}}>{{n['COL 2']}}</div><br>
+                            </th>
+            
+                            <td>
+                                <div class="tab">  {{n['COL 3']}}</div>
+                            </td>
+            
+                             <td>
+                                <div class="tab">  {{n['COL 5']}}</div>
+                            </td>
+            
+                            <td>
+                                <div class="tab">  {{n['COL 6']}}</div>
+                            </td>
+            
+                            <td>
+                             <div>
+                                <img src= {{n.image}} style="height:50% ; width:50% "></img>
+                             </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+            
+                    </tbody> 
+                    <input class="submit" type="submit" value="Submit" >
+                </form> 
+                </table>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of statement -->
 
-                <td>
-                    <div class="tab">  {{n['COL 3']}}</div>
-                </td>
-
-                 <td>
-                    <div class="tab">  {{n['COL 5']}}</div>
-                </td>
-
-                <td>
-                    <div class="tab">  {{n['COL 6']}}</div>
-                </td>
-
-                <td>
-                 <div>
-                    <img src= {{n.image}} style="height:50% ; width:50% "></img>
-                 </div>
-                </td>
-            </tr>
-            {% endfor %}
-
-        </tbody> 
-    </form> 
-    </table>
-            <input type="submit" value="Submit" >
+       
+         
     
        <!-- Scripts -->
        <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
