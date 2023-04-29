@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Your description">
+    <meta name="author" content="Your name">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta name="twitter:card" content="summary_large_image">
+
+    <!-- Webpage Title -->
+    <title>TravelThrough</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/fontawesome-all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/swiper.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/magnific-popup.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}">
+</head>
+
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Gemdev</a> -->
+
+            <!-- Image Logo -->
+             <a class="navbar-brand logo-text page-scroll" href="index.html">TravelThrough</a> 
+            
+           
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#details">Details <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{{url_for('login.logout')}}">Logout</a>
+                    </li>
+                   
+                </ul>
+               .<!-- <span class="nav-item social-icons">
+                    <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x"></i>
+                        </a>
+                    </span>
+                </span>-->
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+  
+
+    <div id="statement" class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-20">
+                    
+                       <h2 class="plan-steps-pane__title c-section__heading h3">Select Locations</h2>
+                       <table class="table table-responsive-md table-hover ">
+                        <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
+                            <input class="submit" type="submit" value="Submit" >
+                        <tbody>
+                          {% for n in name %}
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="largerCheckbox" name=loc value={{n['COL 1']}} />
+                            </td>
+                           
+                            <th>
+                                <div class="tab" for={{n['COL 2']}}>{{n['COL 2']}}</div><br>
+                            </th>
+            
+                            <td>
+                                <div class="tab">  {{n['COL 3']}}</div>
+                            </td>
+            
+                             <td>
+                                <div class="tab">  {{n['COL 5']}}</div>
+                            </td>
+            
+                            <td>
+                                <div class="tab">  {{n['COL 6']}}</div>
+                            </td>
+            
+                            <td>
+                             <div>
+                                <img src= {{n.image}} style="height:50% ; width:50% "></img>
+                             </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+            
+                    </tbody> 
+                   
+                </form> 
+                </table>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of statement -->
+
+       
+         
+    
+       <!-- Scripts -->
+       <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+       <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script> <!-- Bootstrap framework -->
+       <script src="{{ url_for('static', filename='js/jquery.easing.min.js')}}"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+       <script src="{{ url_for('static', filename='js/swiper.min.js')}}"></script> <!-- Swiper for image and text sliders -->
+       <script src="{{ url_for('static', filename='js/jquery.magnific-popup.js')}}"></script> <!-- Magnific Popup for lightboxes -->
+       <script src="{{ url_for('static', filename='js/scripts.js')}}"></script> <!-- Custom scripts -->
+    </body>
+</html>

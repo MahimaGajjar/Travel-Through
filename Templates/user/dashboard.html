@@ -118,53 +118,54 @@
 			<div class="col-lg-4">
                 <h3>Trip Planner</h3>
 				<hr>
-                    <form action="#" method="POST">
+                    <form  method="POST" action="{{url_for('tripdetails.tripdetails')}}">
                         <div class="row">
                           <div class="col-md-5 form-group">
-                            Full Name
-                            <input  type="text" name="destination" id="destination"  class="form-control" placeholder="Enter Destination (Country,Region,or City)">
+                            Destination
+                            <input class="form-control" type="text" name="destination" placeholder="Enter Destination (Country,Region,or City)" value="Bengaluru" disabled>
                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5 form-group">
                               Start Date
-                              <input  type="date" class="form-control"name="s_date" id="s_date" placeholder="Start Date">
+                              <input class="form-control" type="date" name="s"min="2022-12-03"  value="{{ request.form['s'] }}" placeholder="Start Date">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5 form-group">
                               End Date
-                              <input  type="date" class="form-control"name="e_date" id="e_date" placeholder="End Date">
+                              <input class="form-control" type="date" name= 'e' min="2022-12-03" value="{{ request.form['e'] }}" placeholder="End Date">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5 form-group">
                               Number of persons
-                              <input  type="text" name="nop" id="nop"  class="form-control" placeholder="Persons count">
+                              <input  type="text" class="form-control" name="nop"  placeholder="Persons count">
                              </div>
                         </div>
-                        <div class="row">
+                    <!--    <div class="row">
                             <div class="col-md-5 form-group">
-                                Longitude
+                                Latitude
                                 <input type="text" class="form-control" name="long" id="long" disabled>
                             </div>
                             </div>
                             <div class="row">
                             <div class="col-md-5 form-group">
-                                Latitude
+                                Longitude
                                 <input type="text" class="form-control" name="lat" id="lat" disabled>
                             </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <input type="submit" value = 'submit'>
                     </form>
                     
-                <a class="btn-solid-reg mfp-close page-scroll" href="">See the Routes</a> 
+              
                 <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
     <!-- end of lightbox -->
-    <!-- end of details lightbox -->
+    <!-- end of details lieghtbox -->
 
 
     <!-- Statement -->
@@ -310,9 +311,13 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="text-container">
-                        <h2>Award wining framework</h2>
-                        <p>Gemdev has been used in thousand of popular web projects. The feedback has been great so we decided to keep working.</p>
-                        <p>Naturally we can't please everyone because it's not our objective to fit all styles. Our style is based on speed and performance.</p>
+                        <h2>Planning engine that helps you see & do more</h2>
+                        <p>We will optimize your itinerary: </p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li>1. Minimize travel time</li>
+                            <li>2.Check when attractions are open</li>
+                            <li>3.Recommend how much time to spend </li>
+                        </ul>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-4">
