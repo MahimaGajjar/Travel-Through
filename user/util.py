@@ -119,8 +119,8 @@ def getLocationTimeDetails():
  
 
 
-def getRoutes(itemList,initial,plan,day,c,flag,days_num):
-    flag = 0
+def getRoutes(itemList,initial,plan,day,flag):
+    #flag = 0
 
     print('day=====================',day)
     # print('listdays-===============',listDays)
@@ -153,15 +153,16 @@ def getRoutes(itemList,initial,plan,day,c,flag,days_num):
                     else:
                
                         plan[key] = [loc_info[i]['COL 2']]
-                    c+=1
+                    #c+=1
                     flag=1                   
                 else:                 
-                    c=0
+                   # c=0
                     day+=1                  
                     key = 'day'+str(day)               
                     print("added day===========",day)
-                    initial=3600*10   
-    return plan , initial , day, c , flag
+                    initial=3600*10  
+                    flag=0 
+    return plan , initial , day, flag
 
 
 def distributeDays(days,d):
