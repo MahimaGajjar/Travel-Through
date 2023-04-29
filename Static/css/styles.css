@@ -46,7 +46,7 @@ body, p {
 }
 
 h1 {
-	color: #333333;
+	color: #ffffff;
 	font: 600 2.5rem/3.25rem "Poppins", sans-serif;
 }
 
@@ -71,7 +71,7 @@ h5 {
 }
 
 h6 {
-	color: #333333;
+	color: #ffffff;
 	font: 600 1rem/1.5rem "Poppins", sans-serif;
 }
 
@@ -1071,6 +1071,13 @@ a:hover.back-to-top {
 		margin-left: auto;
 	}
 
+	.h1-heading {
+		width: 35.25rem;
+		margin-right: auto;
+		margin-left: auto;
+		
+	}
+
 	.p-heading {
 		width: 42.5rem;
 		margin-right: auto;
@@ -1089,6 +1096,13 @@ a:hover.back-to-top {
 		background-color: transparent;
 		box-shadow: none;
 		transition: all 0.2s;
+
+
+
+
+
+
+
 	}
 
 	.navbar.top-nav-collapse {

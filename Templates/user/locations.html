@@ -59,7 +59,7 @@
                     </li>
                    
                 </ul>
-                <span class="nav-item social-icons">
+               .<!-- <span class="nav-item social-icons">
                     <span class="fa-stack">
                             <a href="#your-link">
                                 <i class="fas fa-circle fa-stack-2x"></i>
@@ -72,7 +72,7 @@
                             <i class="fab fa-twitter fa-stack-1x"></i>
                         </a>
                     </span>
-                </span>
+                </span>-->
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -87,6 +87,7 @@
                        <h2 class="plan-steps-pane__title c-section__heading h3">Select Locations</h2>
                        <table class="table table-responsive-md table-hover ">
                         <form action="{{ url_for('tripdetails.getSelectedLocations') }}">
+                            <input class="submit" type="submit" value="Submit" >
                         <tbody>
                           {% for n in name %}
                         <tr>
@@ -119,7 +120,7 @@
                         {% endfor %}
             
                     </tbody> 
-                    <input class="submit" type="submit" value="Submit" >
+                   
                 </form> 
                 </table>
                     </div> <!-- end of text-container -->

@@ -122,19 +122,19 @@
                         <div class="row">
                           <div class="col-md-5 form-group">
                             Destination
-                            <input class="form-control" type="text" name="destination" placeholder="Enter Destination (Country,Region,or City)" value="Banglore" disabled>
+                            <input class="form-control" type="text" name="destination" placeholder="Enter Destination (Country,Region,or City)" value="Bengaluru" disabled>
                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5 form-group">
                               Start Date
-                              <input class="form-control" type="date" name="s"  value="{{ request.form['s'] }}" placeholder="Start Date">
+                              <input class="form-control" type="date" name="s"min="2022-12-03"  value="{{ request.form['s'] }}" placeholder="Start Date">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5 form-group">
                               End Date
-                              <input class="form-control" type="date" name= 'e'  value="{{ request.form['e'] }}" placeholder="End Date">
+                              <input class="form-control" type="date" name= 'e' min="2022-12-03" value="{{ request.form['e'] }}" placeholder="End Date">
                             </div>
                         </div>
                         <div class="row">
@@ -143,7 +143,7 @@
                               <input  type="text" class="form-control" name="nop"  placeholder="Persons count">
                              </div>
                         </div>
-                        <div class="row">
+                    <!--    <div class="row">
                             <div class="col-md-5 form-group">
                                 Latitude
                                 <input type="text" class="form-control" name="long" id="long" disabled>
@@ -155,7 +155,7 @@
                                 <input type="text" class="form-control" name="lat" id="lat" disabled>
                             </div>
                             </div>
-                        </div>
+                        </div> -->
                         <input type="submit" value = 'submit'>
                     </form>
                     
@@ -165,7 +165,7 @@
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
     <!-- end of lightbox -->
-    <!-- end of details lightbox -->
+    <!-- end of details lieghtbox -->
 
 
     <!-- Statement -->
