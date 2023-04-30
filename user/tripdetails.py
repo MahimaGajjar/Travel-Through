@@ -40,7 +40,6 @@ def locations():
 @bp_tripdetails.route('/routes')
 def getSelectedLocations():
     days_num=session.get('days')
-    print("Total days",days_num)
     day=1
     initial=3600*10
     ids = (request.args.getlist('loc'))
@@ -62,7 +61,7 @@ def getSelectedLocations():
     path={}
     print("no of days=====",days_num)
     # scheduleList = distributeDays(days_num,final)
-    #c=0
+    c=0
     flag = 0
     while(len(final)>0):
         flag = 0
@@ -84,12 +83,12 @@ def getSelectedLocations():
         currentItem = sortedDic[0]
         l1=[parse(currentItem[1]['latitude']),parse(currentItem[1]['longitude'])]
      
-        plan,start,da,f = getRoutes(currentItem,initial,path,day,flag)
-       
+        plan,start,da,ct,f = getRoutes(currentItem,initial,path,day,c,flag,days_num)
+        print("day returned ==",da)
         initial = start
         path = plan
         day = da
-        #c=ct
+        c=ct
         flag=f
         print("id to be deleted ======",currentItem[0])
         if(flag==1):
