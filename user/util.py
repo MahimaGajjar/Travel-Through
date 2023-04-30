@@ -12,7 +12,7 @@ from flask import Flask
 
 
 
-def distance(lat1, lat2, lon1, lon2):
+def distance(lat1, lat2, lon1, lon2,t_w):
     d={}
      
     # The math module contains a function named
@@ -35,7 +35,7 @@ def distance(lat1, lat2, lon1, lon2):
 
 
     # calculate the result
-    dist = c * r
+    dist = (c * r)+t_w
 
 
     time = (dist*1000)/(35*(1000/3600))

@@ -53,7 +53,7 @@ def getSelectedLocations():
     finalRoute = {}
     for i in range(len(locations)):
         if locations[i]['location_id'] in ids:
-            final[locations[i]['location_id']]=({'id':locations[i]['location_id'],'name':locations[i]['name'],'latitude':locations[i]['Latitude'],'longitude':locations[i]['Longitude']})
+            final[locations[i]['location_id']]=({'id':locations[i]['location_id'],'name':locations[i]['name'],'latitude':locations[i]['Latitude'],'longitude':locations[i]['Longitude'], 'traffic_weight':locations[i]['Traffic_Weight']})
 
 
     l1=['12.9776','77.5726']
@@ -73,8 +73,13 @@ def getSelectedLocations():
             l2.append(parse(val['longitude']))
             print('l1==',l1)
             print('l2====',l2)
+            t_w=int(val['traffic_weight'])
+            print('traffic is ==' ,t_w)
             #d = time_date(l1,l2)
-            d= distance(Decimal(l1[0]),Decimal(l2[0]),Decimal(l1[1]),Decimal(l2[1]))
+            d= distance(Decimal(l1[0]),Decimal(l2[0]),Decimal(l1[1]),Decimal(l2[1]),t_w)
+            print('d is ==',d)
+          
+        
             final[key].update(d)
          
    
