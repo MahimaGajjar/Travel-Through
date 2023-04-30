@@ -84,7 +84,7 @@ def getSelectedLocations():
         l1=[parse(currentItem[1]['latitude']),parse(currentItem[1]['longitude'])]
      
         plan,start,da,ct,f = getRoutes(currentItem,initial,path,day,c,flag,days_num)
-       
+        print("day returned ==",da)
         initial = start
         path = plan
         day = da
@@ -95,7 +95,7 @@ def getSelectedLocations():
             del final[currentItem[0]]
 
 
-        if c>days_num:
+        if day>days_num:
             break
 
 

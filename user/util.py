@@ -138,14 +138,15 @@ def getRoutes(itemList,initial,plan,day,c,flag,days_num):
             if(itemList[0]==id):
                 closing_time = loc_info[i]['COL 6'].strip('PM')
                 hour,min = closing_time.split(':')
+                print("minutes=====",min)
                 time = ((int(hour)+12)*3600) + (int(min)*60)
                 duration = loc_info[i]['COL 7']
                 travel_time = itemList[1]['time']
                 initial += int(travel_time) + int(duration)*60
-                print("sssssssssssssss====",loc_info[i]['COL 2'])
+                print("locinfo before if condition ===",loc_info[i]['COL 2'])
                 if (initial < time ):             
                     key = 'day'+str(day)
-                    print("rrrrrrrrr=======",loc_info[i]['COL 2'])                   
+                    print("locinfo if initial time < endtime =====",loc_info[i]['COL 2'])                   
                     if(key in plan):
                         print("key in plan")
                         plan[key].append(loc_info[i]['COL 2'])
@@ -155,12 +156,14 @@ def getRoutes(itemList,initial,plan,day,c,flag,days_num):
                         plan[key] = [loc_info[i]['COL 2']]
                     c+=1
                     flag=1                   
-                else:                 
+                else:         
+                    print("time limit exceeded end time ",[loc_info[i]['COL 2']])
                     c=0
                     day+=1                  
                     key = 'day'+str(day)               
                     print("added day===========",day)
                     initial=3600*10   
+                    flag = 0
     return plan , initial , day, c , flag
 
 
