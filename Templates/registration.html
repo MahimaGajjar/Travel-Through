@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,36 +28,36 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    
+
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="first_name" class="required">Full name</label>
-                                    <input type="text" name="name" id="name" />
+                                    <input type="text" name="username" id="username" required />
                                 </div>
                                 <div class="form-input">
-                                  <label for="email" class="required">Email</label>
-                                  <input type="text" name="email" id="email" />
-                              </div>
+                                    <label for="email" class="required">Email</label>
+                                    <input type="text" name="email" id="email" required/>
+                                </div>
                                 <div class="form-input">
                                     <label for="geographical_location" class="required">geographical_location</label>
-                                    <input type="text" name="geographical_location" id="geographical_location" />
+                                    <input type="text" name="geographical_location" id="geographical_location" required />
                                 </div>
-                               </div>
+                            </div>
                             <div class="form-group">
                                 <div class="form-select">
-                                  <div class="form-input">
-                                    <label for="phone" class="required">Phone number</label>
-                                    <input type="text" name="phone" id="phone" />
-                                </div>
-                                    
+                                    <div class="form-input">
+                                        <label for="phone" class="required">Phone number</label>
+                                        <input type="text" name="phone_no" id="phone_no" required />
+                                    </div>
+
                                 </div>
                                 <div class="form-radio">
                                     <div class="label-flex">
                                         <label for="payment">Gender</label>
                                     </div>
-                                    <div class="form-radio-group">            
+                                    <div class="form-radio-group">
                                         <div class="form-radio-item">
                                             <input type="radio" name="gender" id="male" checked>
                                             <label for="male">Male</label>
@@ -75,18 +76,19 @@
                                     </div>
                                 </div>
                                 <div class="form-input">
-                                  <label for="password" class="required">Password</label>
-                                  <input type="password" name="password" id="password" />
-                              </div>
+                                    <label for="password" class="required">Password</label>
+                                    <input type="password" name="password" id="password" required />
+                                </div>
                             </div>
                         </div>
                         <br><br>
-                        <div class="form-submit">   
+                        <div class="form-submit">
                             <input type="submit" value="Register" class="submit" id="submit" name="submit" />
                             <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
                         </div>
                         <br><br>
-                        <div class="text-center"><a href="{{url_for ('login.login')}}"> Already have an Account? Login</a></div>
+                        <div class="text-center"><a href="{{url_for ('login.login')}}"> Already have an Account?
+                                Login</a></div>
                     </form>
                 </div>
             </div>
@@ -102,4 +104,5 @@
     <script src="{{ url_for('static', filename='vendor/jquery-validation/dist/additional-methods.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/registration/main.js')}}"></script>
 </body>
+
 </html>

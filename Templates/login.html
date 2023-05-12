@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/registration/style.css') }}">
 </head>
+
 <body>
 
     <div class="main">
@@ -30,31 +32,25 @@
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
                             <div class="form-group">
-                                
-                                <div class="form-input">
-                                  <label for="email" class="required">Email</label>
-                                  <input type="text" name="email" id="email" />
-                              </div>
 
-							  <div class="form-input">
-								<label for="password" class="required">Password</label>
-								<input type="password" name="password" id="password" />
-							</div>
-							<div class="form-input">
-                           	
-								<label class="checkbox-wrap checkbox-primary mb-0">Remember Me</label>
-								<input type="checkbox"/>
-							</div>				
-											 
-                            
-                        <div class="form-submit">   
-                            <input type="submit" value="Login" class="submit" id="submit" name="submit" />
-                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
-                        </div>
-                        <br><br>
-						<a href="#">Forgot Password</a>
-                        <div class="text-center"><a href="{{ url_for('registration.registration')}}"> Don't have an Account? Register</a></div>
-					</div>
+                                <div class="form-input">
+                                    <label for="email" class="required">Email</label>
+                                    <input type="text" name="email" id="email" />
+                                </div>
+
+                                <div class="form-input">
+                                    <label for="password" class="required">Password</label>
+                                    <input type="password" name="password" id="password" required/>
+                                </div>
+                                <div class="form-submit">
+                                    <input type="submit" value="Login" class="submit" id="submit" name="submit" />
+                                    <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                                </div>
+                                <br><br>
+                                <a href="#">Forgot Password</a>
+                                <div class="text-center"><a href="{{ url_for('registration.registration')}}"> Don't have
+                                        an Account? Register</a></div>
+                            </div>
                     </form>
                 </div>
             </div>
@@ -70,4 +66,5 @@
     <script src="{{ url_for('static', filename='vendor/jquery-validation/dist/additional-methods.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/registration/main.js')}}"></script>
 </body>
+
 </html>
