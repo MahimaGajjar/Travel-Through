@@ -8,17 +8,12 @@ bp_registration = Blueprint('registration', __name__)
 @bp_registration.route('/registration', methods =['GET', 'POST'])
 def registration():
     if request.method == 'POST':
-        
-            name = request.form['name']
+            name = request.form['username']
             email = request.form['email']
             password = request.form['password']
-            phone = request.form['phone']
-            gender = request.form['gender']
-            geographical_location = request.form['geographical_location']
-    
+            phone_no = request.form['phone_no']    
             cursor = app.mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO userdetails(name, email,phone,geographical_location,gender) VALUES (%s,% s, % s, % s, %s)', (name, email,phone,geographical_location,gender))
-            cursor.execute('INSERT INTO login(username,password,role_type,phone,email) VALUES (%s,% s,% s, % s, % s)', ( name,password,'1',phone,email))
+            cursor.execute('INSERT INTO login(username,password,role_type,phone_no,email) VALUES (%s,% s,% s, % s, % s)', ( name,password,'1',phone_no,email))
             app.mysql.connection.commit()
             return redirect(url_for('login.login'))
         

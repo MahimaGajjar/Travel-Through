@@ -26,10 +26,10 @@ def login():
             session['username'] = userdetails['username']
             print(session)
             if session['role_type'] == '1':
-                cursor.execute('SELECT * FROM userdetails WHERE email = % s',(email,))
+                cursor.execute('SELECT * FROM login WHERE email = % s',(email,))
                 user = cursor.fetchone() 
                 print('user')
-                session['user_id'] = user['user_id']
+                session['id'] = user['id']
                 session['email'] = user['email'] 
                
                 print(session)
